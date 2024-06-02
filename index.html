@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="Fahad"/>
+    <meta name="description" content="This is a static web application of simple calculator which toggles dark mode"/>
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css"/>
+    <link href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACSU4sIklOL/JJTi/ySU4v8klOL/JJTi/ySU4v8klOL/JJTi/ySU4v8klOL/JJTi/ySU4sIAAAAAAAAAAAAAAAAklOL/JJTiPCSU4jwklOL/JJTiPCSU4jwklOL/JJTiPCSU4jwklOL/JJTiPCSU4jwklOL/AAAAAAAAAAAAAAAAJJTi/ySU4jwklOI8JJTi/ySU4jwklOI8JJTi/ySU4jwklOI8JJTi/wAAAAAAAAAAJJTi/wAAAAAAAAAAAAAAACSU4v8klOL/JJTi/ySU4v8klOL/JJTi/ySU4v8klOL/JJTi/ySU4v8AAAAAAAAAACSU4v8AAAAAAAAAAAAAAAAklOL/JJTiPCSU4jwklOL/JJTiPCSU4jwklOL/JJTiPCSU4jwklOL/AAAAAAAAAAAklOL/AAAAAAAAAAAAAAAAJJTi/ySU4jwklOI8JJTi/ySU4jwklOI8JJTi/ySU4jwklOI8JJTi/ySU4jwklOI8JJTi/wAAAAAAAAAAAAAAACSU4v8klOL/JJTi/ySU4v8klOL/JJTi/ySU4v8klOL/JJTi/ySU4v8klOL/JJTi/ySU4v8AAAAAAAAAAAAAAAAklOL/JJTiPCSU4jwklOL/JJTiPCSU4jwklOL/JJTiPCSU4jwklOL/JJTiPCSU4jwklOL/AAAAAAAAAAAAAAAAJJTi/ySU4jwklOI8JJTi/ySU4jwklOI8JJTi/ySU4jwklOI8JJTi/ySU4jwklOI8JJTi/wAAAAAAAAAAAAAAACSU4v8klOL/JJTi/ySU4v8klOL/JJTi/ySU4v8klOL/JJTi/ySU4v8klOL/JJTi/ySU4v8AAAAAAAAAAAAAAAAklOL/SsOLDgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAErDiw8klOL/AAAAAAAAAAAAAAAAJJTi/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJJTi/wAAAAAAAAAAAAAAACSU4v9Kw4sPAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASsOLDySU4v8AAAAAAAAAAAAAAAAklOLCJJTi/ySU4v8klOL/JJTi/ySU4v8klOL/JJTi/ySU4v8klOL/JJTi/ySU4v8klOLCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//8AAIADAAC22wAAttsAAIAbAAC22wAAttsAAIADAAC22wAAttsAAIADAAC/+wAAv/sAAL/7AACAAwAA//8AAA==" rel="icon" type="image/x-icon">
+</head>
+<body>
+    <nav class="navbar">
+        <input type="checkbox" name="dt" id="dt">
+        <label for="dt" style="margin-left: -30px;"></label>
+    </nav>
+    <main>
+    <div id="calc" class="parent">
+        <input type="checkbox" name="tgl" id="tgl" class="child" onclick="tgl()" title="toggle to type">
+        <table>
+            <th colspan="4" style="font-size: 150%;">&nbsp</th>
+            <h1 class="clchd">Simple Calculator</h1>
+            <tr>
+                <td colspan="4">
+                    <div id="input-wrapper">
+                        <input type="text" name="disp" id="disp" disabled title="Type Your Mathematical Operations here">
+                        <input type="button" value="←" onclick="backspace()" id="backspace-btn">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="button" value="1" onclick="num('1')"></td>
+                <td><input type="button" value="2" onclick="num('2')"></td>
+                <td><input type="button" value="3" onclick="num('3')"></td>    
+                <td><input type="button" value="/" onclick="num('/')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="4" onclick="num('4')"></td>
+                <td><input type="button" value="5" onclick="num('5')"></td>
+                <td><input type="button" value="6" onclick="num('6')"></td>    
+                <td><input type="button" value="*" onclick="num('*')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="7" onclick="num('7')"></td>
+                <td><input type="button" value="8" onclick="num('8')"></td>
+                <td><input type="button" value="9" onclick="num('9')"></td>    
+                <td><input type="button" value="-" onclick="num('-')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="+" onclick="num('+')"></td>
+                <td><input type="button" value="0" onclick="num('0')"></td>
+                <td><input type="button" value="." onclick="num('.')"></td>
+                <td><input type="button" value="C" onclick="clr()"></td>
+                </tr>
+            <tr>
+                <td colspan="4"><input type="button" value="=" onclick="res()" id="res"></td>
+            </tr>
+        </table>
+
+    </div>
+        <div class="bg"></div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
