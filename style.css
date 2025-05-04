@@ -1,0 +1,233 @@
+:root {
+    /* Dark theme variables */
+    --dark-primary: #1a1a2e;
+    --dark-hover: #2a2a4a;
+    --dark-secondary: #00ffff;
+    --dark-bg: #0f0f1a;
+    --dark-disp: var(--dark-primary);
+    --dark-cardbg: #1a1a2e;
+    --dark-prevtext: #59b9b9;
+    --dark-currenttext: #00ffff;
+    --dark-btntext: #00ffff;
+    --dark-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+
+    /* Light theme variables */
+    --light-primary: #e6dede;
+    --light-hover: #939da3;
+    --light-secondary: #0088ff;
+    --light-bg: #d4dce2;
+    --light-disp: var(--light-primary);
+    --light-cardbg: #e4e4e4;
+    --light-prevtext: #00000050;
+    --light-currenttext: #413d3d;
+    --light-btntext: #2c3e50;
+    --light-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+
+    /* Default to light theme */
+    --primary: var(--light-primary);
+    --hover: var(--light-hover);
+    --secondary: var(--light-secondary);
+    --bg: var(--light-bg);
+    --disp: var(--light-disp);
+    --cardbg: var(--light-cardbg);
+    --prevtext: var(--light-prevtext);
+    --currenttext: var(--light-currenttext);
+    --btntext: var(--light-btntext);
+    --shadow: var(--light-shadow);
+}
+
+/* Dark theme class */
+body.dark {
+    --primary: var(--dark-primary);
+    --hover: var(--dark-hover);
+    --secondary: var(--dark-secondary);
+    --bg: var(--dark-bg);
+    --disp: var(--dark-disp);
+    --cardbg: var(--dark-cardbg);
+    --prevtext: var(--dark-prevtext);
+    --currenttext: var(--dark-currenttext);
+    --btntext: var(--dark-btntext);
+    --shadow: var(--dark-shadow);
+}
+
+/* Add transitions */
+body {
+    transition: background-color 0.3s ease;
+}
+
+.calculator, .display, button {
+    transition: all 0.3s ease;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal;
+}
+
+body {
+    /* display: flex; */
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    /* justify-content: center;
+    align-items: center;
+    height: 100vh; */
+}
+
+.calculator {
+    font-family: Arial, Helvetica, sans-serif;
+    /* background-color: var(--secondary); */
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    min-height: 100px;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+}
+
+.display {
+    background-color: var(--disp);
+    color: var(--disp);
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 20px;
+    word-wrap: break-word;
+    word-break: break-all;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.display .previous {
+    font-size: 1.5rem;
+    color: var(--prevtext);
+}
+
+.display .current {
+    font-size: 3rem;
+    color: var(--currenttext);
+}
+
+/* .container as a card around the calculator */
+.container {
+    background-color: var(--bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.container .calculator {
+    background-color: var(--cardbg);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+button {
+    cursor: pointer;
+    font-size: 2rem;
+    border: none;
+    outline: none;
+    background-color: var(--primary);
+    color: var(--btntext);
+    /* border: 1px solid rgba(255, 255, 255, 0.1); */
+    margin: 2px;
+    transition: all 0.2s ease;
+}
+
+#srow {
+    border-radius: 0 0 0 20px;
+}
+
+#erow {
+    border-radius: 0 0 20px 0;
+}
+
+#t1row {
+    border-radius: 20px 0 0 0;
+}
+
+#t2row {
+    border-radius: 0 20px 0 0;
+}
+
+button:hover {
+    background-color: var(--hover);
+    color: var(--btntext);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+body.dark button:hover {
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+    color: #ffffff;
+}
+
+.span-two {
+    grid-column: span 2;
+}
+
+/* Theme toggle styles */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #98d1ff;
+    transition: .3s;
+    border-radius: 34px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 4px;
+    bottom: 4px;
+    background-color: rgb(255, 255, 255);
+    transition: .3s;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+input:checked + .slider {
+    background-color: #1a1a2e;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+input:checked + .slider:before {
+    transform: translateX(30px);
+}
+
+/* Enhanced glow effect */
+input:checked + .slider:before {
+    box-shadow: 0 0 10px #00ffff, 0 0 20px rgba(0, 255, 255, 0.4);
+}
