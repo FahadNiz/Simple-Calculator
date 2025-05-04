@@ -1,52 +1,65 @@
-# Simple Calculator
+# Simple Calculator with Dark Mode
 
-Welcome to the Simple Calculator project! This is a basic calculator built using HTML, CSS, and JavaScript. It was created for fun, educational purposes, and as a time-pass project.
-
-## Project Overview
-
-The Simple Calculator is a static webpage that performs basic arithmetic operations like addition, subtraction, multiplication, and division. It also includes a dark mode feature and a toggle for enabling or disabling input.
+A modern, responsive calculator web application with dark mode support. This calculator provides basic arithmetic operations with a clean and intuitive interface that adapts to your preferred theme.
 
 ## Features
 
-- Basic arithmetic operations: addition, subtraction, multiplication, and division
-- Dark mode toggle
-- Input toggle to enable or disable user input
-- Responsive design for different screen sizes
-- Backspace functionality to remove the last entered character
-- Input validation to ensure only valid characters are entered
+- Basic arithmetic operations (addition, subtraction, multiplication, division)
+- Modulo operation (%)
+- Dark/Light mode toggle
+- Responsive design
+- Clear and Delete functionality
+- Decimal point support
+- System theme detection
+- Smooth transitions between themes
+- Modern glass-morphism design
 
 ## Live Demo
 
 You can view the live demo of the project [here](https://fahadniz.github.io/Simple-Calculator/).
 
-## How to Use
-
-1. Open the live demo link in your browser.
-2. Use the calculator buttons to perform calculations.
-3. Use the toggle button to enable or disable input.
-4. Switch between light and dark modes using the dark mode toggle.
-
 ## Technologies Used
 
-- HTML
-- CSS
-- JavaScript
+- HTML5
+- CSS3
+- JavaScript (ES6+)
 
-## Project Structure
+## Calculator Functions
 
-The project consists of three main files:
+- Clear (C): Resets all operations
+- Delete (DEL): Removes the last entered digit
+- Basic Operations: +, -, *, /, %
+- Decimal Point: Supports floating-point numbers
+- Error Prevention: Prevents multiple decimal points
 
-- `index.html`: The main HTML file that contains the structure of the calculator.
-- `style.css`: The CSS file that styles the calculator.
-- `script.js`: The JavaScript file that adds functionality to the calculator.
+## Setup
+
+1. Clone the repository
+2. Open `index.html` in a modern web browser
+3. Start calculating!
+
+No additional setup or dependencies required - it's a pure HTML, CSS, and JavaScript implementation.
+
+## Usage
+
+- Click numbers and operators to perform calculations
+- Use the theme toggle in the top-right corner to switch between light and dark modes
+- The calculator will remember your theme preference
+- The calculator automatically adapts to your system's theme preference on first load
+
+## Development
+
+All source files are included:
+- `index.html`: Structure and layout
+- `style.css`: Styling and themes
+- `script.js`: Calculator logic and functionality
 
 ## License
 
 This project is open source and available under the MIT License.
-
 ## Contact
 
-If you have any questions or feedback, feel free to reach out on Discord: **fahad.niz**
+If you have any questions or feedback, feel free to reach out on Discord: **fahad.niz** or Join my [server](https://discord.gg/n3KkgU5xZy)
 
 ---
 
