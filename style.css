@@ -1,177 +1,233 @@
-html{
-    display: flex;
-    height: 100%;
+:root {
+    /* Dark theme variables */
+    --dark-primary: #1a1a2e;
+    --dark-hover: #2a2a4a;
+    --dark-secondary: #00ffff;
+    --dark-bg: #0f0f1a;
+    --dark-disp: var(--dark-primary);
+    --dark-cardbg: #1a1a2e;
+    --dark-prevtext: #59b9b9;
+    --dark-currenttext: #00ffff;
+    --dark-btntext: #00ffff;
+    --dark-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+
+    /* Light theme variables */
+    --light-primary: #e6dede;
+    --light-hover: #939da3;
+    --light-secondary: #0088ff;
+    --light-bg: #d4dce2;
+    --light-disp: var(--light-primary);
+    --light-cardbg: #e4e4e4;
+    --light-prevtext: #00000050;
+    --light-currenttext: #413d3d;
+    --light-btntext: #2c3e50;
+    --light-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+
+    /* Default to light theme */
+    --primary: var(--light-primary);
+    --hover: var(--light-hover);
+    --secondary: var(--light-secondary);
+    --bg: var(--light-bg);
+    --disp: var(--light-disp);
+    --cardbg: var(--light-cardbg);
+    --prevtext: var(--light-prevtext);
+    --currenttext: var(--light-currenttext);
+    --btntext: var(--light-btntext);
+    --shadow: var(--light-shadow);
+}
+
+/* Dark theme class */
+body.dark {
+    --primary: var(--dark-primary);
+    --hover: var(--dark-hover);
+    --secondary: var(--dark-secondary);
+    --bg: var(--dark-bg);
+    --disp: var(--dark-disp);
+    --cardbg: var(--dark-cardbg);
+    --prevtext: var(--dark-prevtext);
+    --currenttext: var(--dark-currenttext);
+    --btntext: var(--dark-btntext);
+    --shadow: var(--dark-shadow);
+}
+
+/* Add transitions */
+body {
+    transition: background-color 0.3s ease;
+}
+
+.calculator, .display, button {
+    transition: all 0.3s ease;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal;
+}
+
+body {
+    /* display: flex; */
     margin: 0;
+    padding: 0;
+    background: var(--bg);
+    /* justify-content: center;
+    align-items: center;
+    height: 100vh; */
+}
+
+.calculator {
+    font-family: Arial, Helvetica, sans-serif;
+    /* background-color: var(--secondary); */
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    min-height: 100px;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+}
+
+.display {
+    background-color: var(--disp);
+    color: var(--disp);
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 20px;
+    word-wrap: break-word;
+    word-break: break-all;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.display .previous {
+    font-size: 1.5rem;
+    color: var(--prevtext);
+}
+
+.display .current {
+    font-size: 3rem;
+    color: var(--currenttext);
+}
+
+/* .container as a card around the calculator */
+.container {
+    background-color: var(--bg);
+    display: flex;
     justify-content: center;
     align-items: center;
-    font-family: Arial, sans-serif;
+    min-height: 100vh;
+}
+.container .calculator {
+    background-color: var(--cardbg);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-body{
-    background: var(--main);
-    transition: background-color 0.3s, color 0.3s;
+button {
+    cursor: pointer;
+    font-size: 2rem;
+    border: none;
+    outline: none;
+    background-color: var(--primary);
+    color: var(--btntext);
+    /* border: 1px solid rgba(255, 255, 255, 0.1); */
+    margin: 2px;
+    transition: all 0.2s ease;
 }
 
-:root {
-    --prim: #ebe6e6;
-    --sec: #1d1c1c;
-    --main: #fff;
+#srow {
+    border-radius: 0 0 0 20px;
 }
-.navbar {
+
+#erow {
+    border-radius: 0 0 20px 0;
+}
+
+#t1row {
+    border-radius: 20px 0 0 0;
+}
+
+#t2row {
+    border-radius: 0 20px 0 0;
+}
+
+button:hover {
+    background-color: var(--hover);
+    color: var(--btntext);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+body.dark button:hover {
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+    color: #ffffff;
+}
+
+.span-two {
+    grid-column: span 2;
+}
+
+/* Theme toggle styles */
+.theme-toggle {
     position: fixed;
+    top: 20px;
+    right: 20px;
+}
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
     top: 0;
     left: 0;
-    width: 100%;
-    padding: 10px;
-    z-index: 999;
-    display: flex;
-    justify-content: flex-end;
+    right: 0;
+    bottom: 0;
+    background-color: #98d1ff;
+    transition: .3s;
+    border-radius: 34px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
-.toggle-container {
-    display: flex;
-    align-items: center;
-}
-
-#dt {
-    display: none;
-}
-
-#dt + label {
-    margin-right: 10px;
-    width: 50px;
-    height: 20px;
-    display: block;
-    cursor: pointer;
-    background: #ebebeb;
-    border-radius: 200px;
-    position: relative;
-    box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4);
-    transition: 0.3s;
-}
-
-#dt + label:after {
+.slider:before {
+    position: absolute;
     content: "";
-    width: 15px;
-    height: 15px;
-    position: absolute;
-    top: 2.5px;
-    left: 2.5px;
-    background: var(--sec);
-    border-radius: 180px;
-    transition: 0.3s;
+    height: 22px;
+    width: 22px;
+    left: 4px;
+    bottom: 4px;
+    background-color: rgb(255, 255, 255);
+    transition: .3s;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-#dt:checked + label {
-    background: var(--sec);
+input:checked + .slider {
+    background-color: #1a1a2e;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
 }
 
-#dt:checked + label:after {
-    left: 32px;
-    background: var(--prim);
+input:checked + .slider:before {
+    transform: translateX(30px);
 }
 
-#calc {
-    display: flex;
-    box-shadow: 0 0 10px var(--sec);
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    flex-direction: column;
-    background-color: var(--prim);
-    max-width: 90%;
-    width: 100%;
-    margin: 10px;
-}
-
-table {
-    border: 0px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-}
-
-#input-wrapper {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-input[type="button"] {
-    width: 100%;
-    font-weight: 900;
-    align-self: center;
-    border-radius: 10px;
-    border-color: black;
-    margin: 1px;
-    color: var(--sec);
-    background: var(--main);
-}
-
-input[type="text"] {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    border: box;
-    border-radius: 10px;
-    border-color: black;
-    margin: 1px;
-    color: var(--sec);
-    font-weight: 900;
-    background: var(--prim);
-}
-
-/* Responsive design for smaller screens */
-@media (max-width: 600px) {
-    input[type="button"] {
-        padding: 10px;
-        font-size: 16px;
-    }
-    
-    input[type="text"] {
-        padding: 10px;
-        font-size: 16px;
-    }
-        
-    #backspace-btn {
-        padding: 10px;
-        font-size: 16px;
-    }
-        
-    #calc {
-        padding: 10px;
-        border-radius: 15px;
-    }
-}
-
-.parent {
-    position: relative;
-}
-
-.child {
-    position: absolute;
-    top: 13px; /* Adjust as needed */
-    left: 13px; /* Adjust as needed */
-    z-index: 999; /* Ensure checkbox is above other content */
-}
-
-#tgl:hover {
-    cursor: pointer;
-}
-
-.clchd {
-    position: absolute;
-    color: var(--sec);
-    font-size: 150%;
-    text-align: center;
-    z-index: 998;
-    top: -4px;
-}
-
-.dark {
-    --prim: #1d1c1c;
-    --sec: #ebe6e6;
-    --main: #000;
+/* Enhanced glow effect */
+input:checked + .slider:before {
+    box-shadow: 0 0 10px #00ffff, 0 0 20px rgba(0, 255, 255, 0.4);
 }
