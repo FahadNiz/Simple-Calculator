@@ -59,7 +59,7 @@ All source files are included:
 This project is open source and available under the MIT License.
 ## Contact
 
-If you have any questions or feedback, feel free to reach out on Discord: **fahad.niz** or Join my [server](https://discord.gg/n3KkgU5xZy)
+If you have any questions or feedback, feel free to reach out on Discord: **fahad.niz** or Join my [server](https://discord.gg/NHrYpm3G9g)
 
 ---
 
